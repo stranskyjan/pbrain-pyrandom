@@ -2,7 +2,7 @@ import random
 import pisqpipe as pp
 from pisqpipe import DEBUG_EVAL, DEBUG
 
-pp.infotext = 'name="pbrain-pyrandom", author="Jan Stransky", version="1.0", country="Czech Republic" www="https://github.com/stranskyjan/pbrain-pyrandom"'
+pp.infotext = 'name="pbrain-pyrandom", author="Jan Stransky", version="1.0", country="Czech Republic", www="https://github.com/stranskyjan/pbrain-pyrandom"'
 
 MAX_BOARD = 100
 board = [[0 for i in xrange(MAX_BOARD)] for j in xrange(MAX_BOARD)]
@@ -79,7 +79,7 @@ if DEBUG_EVAL:
 		wnd = win32gui.GetForegroundWindow()
 		dc = win32gui.GetDC(wnd)
 		rc = win32gui.GetClientRect(wnd)
-		c = str(board[x][y])+'0'
+		c = str(board[x][y])
 		win32gui.ExtTextOut(dc, rc[2]-15, 3, 0, None, c, ())
 		win32gui.ReleaseDC(wnd, dc)
 

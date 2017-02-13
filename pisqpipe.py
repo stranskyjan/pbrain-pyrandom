@@ -100,7 +100,7 @@ def safeInt(v):
 
 def get_line():
 	"""read a line from sys.stdin"""
-	return sys.stdin.readline()
+	return sys.stdin.readline().strip()
 
 def parse_coord(param):
 	"""parse coordinates x,y"""
