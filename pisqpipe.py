@@ -155,6 +155,7 @@ def stop():
 	win32event.WaitForSingleObject(event2, win32event.INFINITE)
 
 def start():
+	global start_time
 	start_time = win32api.GetTickCount()
 	stop()
 	global width, height
