@@ -5,7 +5,7 @@ from pisqpipe import DEBUG_EVAL, DEBUG
 pp.infotext = 'name="pbrain-pyrandom", author="Jan Stransky", version="1.0", country="Czech Republic", www="https://github.com/stranskyjan/pbrain-pyrandom"'
 
 MAX_BOARD = 100
-board = [[0 for i in xrange(MAX_BOARD)] for j in xrange(MAX_BOARD)]
+board = [[0 for i in range(MAX_BOARD)] for j in range(MAX_BOARD)]
 
 
 def brain_init():
@@ -18,8 +18,8 @@ def brain_init():
 	pp.pipeOut("OK")
 
 def brain_restart():
-	for x in xrange(pp.width):
-		for y in xrange(pp.height):
+	for x in range(pp.width):
+		for y in range(pp.height):
 			board[x][y] = 0
 	pp.pipeOut("OK")
 

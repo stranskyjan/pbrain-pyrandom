@@ -2,7 +2,6 @@
 # don't modify this file
 
 import sys
-import thread
 import win32api
 import win32event
 import win32console
@@ -79,7 +78,7 @@ def brain_about():
 def pipeOut(what):
 	"""write a line to sys.stdout"""
 	ret = len(what)
-	print what
+	print(what)
 	sys.stdout.flush()
 
 def do_mymove(x, y):

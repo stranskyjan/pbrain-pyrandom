@@ -15,15 +15,17 @@ There are several ways how to create .exe from Python files.
 Here I present the approach using [PyInstaller](http://pyinstaller.org) and Windows command line:
 
 1. Install Windows (or [Wine](https://www.winehq.org/) for Linux, originally the project was created and tested on Ubuntu 16.04 using Wine)
-2. Install [Python](http://www.python.org) (the code and also following instructions are for version 2.7).
-3. Install [pywin32](https://sourceforge.net/projects/pywin32) Python package: `C:\Python27\Scripts\pip.exe install pypiwin32` (if not present "by default")
-4. Install PyInstaller: `C:\Python27\Scripts\pip.exe install pyinstaller`
+2. Install [Python](http://www.python.org) (the code and also following instructions were tested with versions 2.7 and 3.6).
+3. Install [pywin32](https://sourceforge.net/projects/pywin32) Python package: `pip.exe install pypiwin32` (if not present "by default")
+4. Install [PyInstaller](https://www.pyinstaller.org/): `pip.exe install pyinstaller`
 
 To compile the example, use the following command line command:
 ```
 cd C:\path\where\the\files\were\saved
-C:\Python27\Scripts\pyinstaller.exe example.py pisqpipe.py --name pbrain-pyrandom.exe --onefile
+pyinstaller.exe example.py pisqpipe.py --name pbrain-pyrandom.exe --onefile
 ```
+
+Note: the executables `pip.exe` and `pyinstaller.exe` might need full path, in my case I used `C:\Python27\Scripts\pip.exe` and `C:\Python27\Scripts\pyinstaller.exe`.
 
 #### How to create your own AI
 Replace file example.py with your own algorithm. Please don't change file pisqpipe.py, because it contains communication between your AI and the game manager and it might be changed in future protocol versions. 
