@@ -83,6 +83,45 @@ if DEBUG_EVAL:
 		win32gui.ExtTextOut(dc, rc[2]-15, 3, 0, None, c, ())
 		win32gui.ReleaseDC(wnd, dc)
 
+######################################################################
+# A possible way how to debug brains.
+# To test it, just "uncomment" it (delete enclosing """)
+######################################################################
+"""
+# define a file for logging ...
+DEBUG_LOGFILE = "/tmp/pbrain-pyrandom.log"
+# ...and clear it initially
+with open(DEBUG_LOGFILE,"w") as f:
+	pass
+
+# define a function for writing messages to the file
+def logDebug(msg):
+	with open(DEBUG_LOGFILE,"a") as f:
+		f.write(msg+"\n")
+		f.flush()
+
+# define a function to get exception traceback
+def logTraceBack():
+	import traceback
+	with open(DEBUG_LOGFILE,"a") as f:
+		traceback.print_exc(file=f)
+		f.flush()
+	raise
+
+# use logDebug wherever
+# use try-except (with logTraceBack in except branch) to get exception info
+# an example of problematic function
+def brain_turn():
+	logDebug("some message 1")
+	try:
+		logDebug("some message 2")
+		1. / 0. # some code raising an exception
+		logDebug("some message 3") # not logged, as it is after error
+	except:
+		logTraceBack()
+"""
+######################################################################
+
 # "overwrites" functions in pisqpipe module
 pp.brain_init = brain_init
 pp.brain_restart = brain_restart
